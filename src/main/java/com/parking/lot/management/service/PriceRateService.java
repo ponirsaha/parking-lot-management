@@ -10,9 +10,9 @@ public interface PriceRateService {
 
     PriceRate updatePriceRate(PriceRate priceRate);
 
-    PriceRate deletePriceRate(PriceRate priceRate);
+    void deletePriceRate(Integer id);
 
     List<PriceRate> fetchAllPriceRates();
 
-    Optional<PriceRate> getMatchPriceRate(PriceRate priceRate);
+    Optional<PriceRate> getMatchPriceRate(Integer id);
 }
