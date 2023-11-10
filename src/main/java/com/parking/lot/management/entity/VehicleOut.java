@@ -4,20 +4,21 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
+
 @Data
 @Entity
-@Table(name = "VEHICLE_OUT", schema = "parking-lot")
+@Table(name = "VEHICLE_OUT")
 public class VehicleOut implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
-    @Column(name = "vehicle_in_id")
-    private int vehicleInId;
-    @Basic
+
     @Column(name = "vehicle_out_time")
-    private Timestamp vehicleOutTime;
+    private Date vehicleOutTime;
+
+    @OneToOne
+    private VehicleReservation vehicleReservation;
 }

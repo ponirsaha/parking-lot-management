@@ -1,7 +1,7 @@
 package com.parking.lot.management.service;
 
-import com.parking.lot.management.entity.VehicleIn;
+import com.parking.lot.management.entity.VehicleReservation;
 
 public interface VehicleInService {
-    VehicleIn createVehicleIn(VehicleIn vehicleIn);
+    VehicleReservation createVehicleIn(VehicleReservation vehicleReservation);
 }

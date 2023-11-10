@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PriceRateRepository extends JpaRepository<PriceRate, Integer> {
+    PriceRate findByHourlyRate(int hourlyRate);
 }

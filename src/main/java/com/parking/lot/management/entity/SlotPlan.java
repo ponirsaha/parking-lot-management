@@ -8,12 +8,13 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "SLOT_PLAN", schema = "parking-lot")
+@Table(name = "SLOT_PLAN")
 public class SlotPlan implements Serializable {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @Column(name = "id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "slot_number")
     private String slotNumber;
@@ -21,10 +22,16 @@ public class SlotPlan implements Serializable {
     @Column(name = "slot_info")
     private String slotInfo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "slot_category_id", referencedColumnName = "id")
-    private SlotCategory slotCategoryId;
+    @ManyToOne
+    @JoinColumn(name = "slotPlan")
+    private SlotCategory slotCategory;
 
     @Column(name = "status")
     private Status status;
+
+    @OneToOne
+    private VehicleReservation vehicleReservation;
+
+    @OneToOne
+    private Billing billing;
 }

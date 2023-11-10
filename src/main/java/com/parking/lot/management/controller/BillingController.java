@@ -3,10 +3,7 @@ package com.parking.lot.management.controller;
 import com.parking.lot.management.entity.Billing;
 import com.parking.lot.management.service.BillingService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,7 +13,7 @@ public class BillingController {
     private final BillingService billingService;
 
     @PostMapping("/create")
-    public Billing createBilling(@RequestBody Billing billing) {
-        return billingService.createBilling(billing);
+    public Billing createBilling(@RequestParam String vehicleNo) {
+        return billingService.createBilling(vehicleNo);
     }
 }

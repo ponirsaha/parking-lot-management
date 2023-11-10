@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "PRICE_RATE", schema = "parking-lot")
+@Table(name = "PRICE_RATE")
 public class PriceRate implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -17,8 +17,11 @@ public class PriceRate implements Serializable {
     @Column(name = "time_slot")
     private int timeSlot;
     @Basic
-    @Column(name = "avg_rate")
-    private double avgRate;
+    @Column(name = "hourly_rate")
+    private double hourlyRate;
+
+    @Column(name = "monthly_rate")
+    private double monthlyRate;
     @Basic
     @Column(name = "peak_time_rate")
     private double peakTimeRate;
@@ -28,4 +31,7 @@ public class PriceRate implements Serializable {
     @Basic
     @Column(name = "spatial_discount_rate")
     private double spatialDiscountRate;
+    @Basic
+    @Column(name = "vat")
+    private double vat;
 }

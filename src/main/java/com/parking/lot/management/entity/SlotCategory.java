@@ -13,11 +13,15 @@ public class SlotCategory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "status")
     private Status status;
 
     @Column(name = "category")
     private String category;
+
+    @OneToOne
+    @JoinColumn(name = "slot_plan_id")
+    private SlotPlan slotPlan;
 }
