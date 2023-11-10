@@ -1,5 +1,6 @@
 package com.parking.lot.management.entity;
 
+import com.parking.lot.management.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -7,16 +8,16 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "SLOT_CATEGORY", schema = "parking-lot")
+@Table(name = "SLOT_CATEGORY")
 public class SlotCategory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
+
     @Column(name = "status")
-    private String status;
-    @Basic
+    private Status status;
+
     @Column(name = "category")
     private String category;
 }

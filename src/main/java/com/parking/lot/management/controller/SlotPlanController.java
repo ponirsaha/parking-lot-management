@@ -10,14 +10,14 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("slot-plan")
+@RequestMapping("/slot-plan")
 public class SlotPlanController {
 
     private final SlotPlanService slotPlanService;
 
     @PostMapping("/create")
-    public SlotPlan createSlotPlan(@RequestBody SlotPlan slotPlan) {
-        return slotPlanService.createSlotPlan(slotPlan);
+    public void createSlotPlan() {
+        slotPlanService.createSlotPlan();
     }
 
     @PutMapping("/update")

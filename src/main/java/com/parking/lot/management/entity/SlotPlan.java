@@ -1,5 +1,6 @@
 package com.parking.lot.management.entity;
 
+import com.parking.lot.management.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,16 +14,17 @@ public class SlotPlan implements Serializable {
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
+
     @Column(name = "slot_number")
     private String slotNumber;
-    @Basic
+
     @Column(name = "slot_info")
     private String slotInfo;
-    @Basic
-    @Column(name = "slot_category_id")
-    private int slotCategoryId;
-    @Basic
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "slot_category_id", referencedColumnName = "id")
+    private SlotCategory slotCategoryId;
+
     @Column(name = "status")
-    private String status;
+    private Status status;
 }

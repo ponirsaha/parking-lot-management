@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SlotPlanService {
-    SlotPlan createSlotPlan(SlotPlan slotPlan);
+    void createSlotPlan();
+    //SlotPlan createSlotPlan(SlotPlan slotPlan);
 
     SlotPlan updateSlotPlan(SlotPlan slotPlan);
 
@@ -19,4 +20,5 @@ public interface SlotPlanService {
     List<SlotPlan> updateSlotPlanStatus(List<SlotPlan> slotPlans);
 
     List<SlotPlan> getFirstTenSlotPlanForNextReservation();
+
 }

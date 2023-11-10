@@ -10,12 +10,12 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("slot-category")
+@RequestMapping("/slot-category")
 public class SlotCategoryController {
 
     private final SlotCategoryService slotCategoryService;
 
-    @GetMapping("/get-all/{id}")
+    @GetMapping("/get/{id}")
     public Optional<SlotCategory> getSingleSlotCategory(@PathVariable Integer id){
         return slotCategoryService.getSingleSlotCategory(id);
     }
